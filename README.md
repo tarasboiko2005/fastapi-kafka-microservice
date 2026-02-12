@@ -9,6 +9,6 @@
 - **Docker & Docker Compose**
 
 ### How to Run:
-1. Create file `.env` на основі конфігурації в `config.py`.
+1. Create file `.env` based on the configuration in `config.py`.
 2. Run Docker: `docker-compose up --build`.
 3. Documentation: `http://localhost:8000/docs`.
