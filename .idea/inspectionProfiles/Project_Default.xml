@@ -1,0 +1,31 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="pymongo" />
+          <option value="celery" />
+          <option value="redis" />
+          <option value="python-dotenv" />
+          <option value="flasgger" />
+          <option value="pillow" />
+          <option value="beautifulsoup4" />
+          <option value="requests" />
+          <option value="pydantic" />
+          <option value="Flask" />
+          <option value="Flask-SQLAlchemy" />
+          <option value="SQLAlchemy" />
+          <option value="google-generativeai" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="langchain.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
