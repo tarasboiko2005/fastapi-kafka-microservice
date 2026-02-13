@@ -4,9 +4,9 @@ from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 import time
 from app.kafka_client import start_kafka_producer, stop_kafka_producer
-from app.routers import orders, users
 from app.logger import logger
 from starlette.middleware.base import BaseHTTPMiddleware
+from app.routers import orders, users, health
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -55,3 +55,4 @@ class TimingMiddleware(BaseHTTPMiddleware):
 app.add_middleware(TimingMiddleware)
 app.include_router(orders.router)
 app.include_router(users.router)
+app.include_router(health.router)
