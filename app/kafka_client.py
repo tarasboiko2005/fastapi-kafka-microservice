@@ -12,7 +12,6 @@ async def start_kafka_producer():
     logger.info("✅ Kafka Producer Started")
 
 async def stop_kafka_producer():
-    global producer
     if producer:
         await producer.stop()
         logger.info("🛑 Kafka Producer Stopped")
