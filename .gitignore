@@ -1,10 +1,17 @@
 .env
-
 __pycache__/
 *.py[cod]
 *$py.class
 venv/
 .venv/
-
+.vscode/
 .docker/
 .idea/
+
+# Airflow
+standalone_admin_password.txt
+airflow.cfg
+airflow.db
+logs/
+dags/.airflow_db_lock
+airflow-webserver.pid
