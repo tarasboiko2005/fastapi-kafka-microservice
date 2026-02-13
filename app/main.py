@@ -21,16 +21,21 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
-    logger.error(f"❌ Validation error: {exc.errors()}")
+    errors = []
+    for error in exc.errors():
+        errors.append({
+            "loc": error["loc"],
+            "msg": str(error["msg"]),
+            "type": error["type"]
+        })
+
+    logger.error(f"❌ Validation error: {errors}")
     return JSONResponse(
         status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-        content={
-            "status": "error",
-            "message": "Invalid data provided",
-            "details": exc.errors()
-        },
+        content={"detail": errors}
     )
 
 @app.exception_handler(Exception)
