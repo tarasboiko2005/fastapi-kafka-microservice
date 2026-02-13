@@ -55,7 +55,9 @@ services:
     build: .
     env_file:
       - .env
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload --log-level warning
+    command: >
+      sh -c "alembic upgrade head && 
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload --log-level warning"
     ports:
       - "8000:8000"
     volumes:
@@ -80,3 +82,5 @@ services:
       postgres:
         condition: service_healthy
     restart: on-failure
+    deploy:
+     replicas: ${WORKER_REPLICAS:-1}
